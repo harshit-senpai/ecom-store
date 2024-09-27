@@ -3,7 +3,9 @@ import localFont from "next/font/local";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
-import  Navbar  from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
+import { ModalProvider } from "@/providers/ModalProvider";
+import { Toaster } from "sonner";
 
 const font = Urbanist({
   subsets: ["latin"],
@@ -35,6 +37,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${font.className} antialiased`}
       >
+        <ModalProvider />
+        <Toaster/>
         <Navbar />
         {children}
         <Footer />
